@@ -18,7 +18,8 @@ export const Slider = styled.div`
   > div {
     display: flex;
     gap: 2.7rem;
-    overflow-x: auto;
+    overflow-x: hidden;
+    padding-inline: 3rem;
     scroll-behavior: smooth;
     ::-webkit-scrollbar {
       display: none;
@@ -28,7 +29,7 @@ export const Slider = styled.div`
     position: absolute;
     z-index: 5;
     height: 51.2rem;
-    width: 11.6rem;
+    width: 5rem;
     padding-inline: 1rem;
     color: ${({ theme }) => theme.COLORS.WHITE};
     display: none;
@@ -53,10 +54,17 @@ export const Slider = styled.div`
       transition: all ease 0.5s;
       opacity: 0;
     }
+
     &:hover {
       .btn-left, .btn-right {
         opacity: 1;
       }
+    }
+  }
+
+  @media (max-width: 768px) {
+    >div{
+      overflow-x: auto;
     }
   }
 `

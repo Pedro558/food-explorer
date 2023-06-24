@@ -10,7 +10,7 @@ export function Footer() {
           <img src={logoFooter} alt="Logo" />
           <span>food explorer</span>
         </div>
-        <p>© 2022 - Todos os direitos reservados.</p>
+        <p>© 2023 - Todos os direitos reservados.</p>
       </Content>
     </Container>
   )

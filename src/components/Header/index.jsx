@@ -41,48 +41,53 @@ export function Header({ search, functionButton }) {
       <Content>
         <Logo to="/">
           <img src={logo} alt="polígono azul" />
-          <strong>food explorer</strong>
+          <p className="text-logo">
+            <strong>food explorer</strong>
+            {user.isAdmin > 0 && <span>admin</span>}
+          </p>
         </Logo>
 
-        <Nav isVisible={menuIsVisible}>
-          {user.isAdmin ? (
-            <NewDish to="/new">+ Adicionar novo prato</NewDish>
-          ) : (
-            <Favorites type="button" onClick={functionButton}>
-              Meus favoritos
-            </Favorites>
-          )}
+          <Nav isVisible={menuIsVisible}>
+            <Search>
+              {<FiSearch size={20} />}
+              <input
+                type="text"
+                placeholder="Busque pelas opções de pratos"
+                onChange={(e) => {
+                  search(e.target.value);
+                }}
+              />
+            </Search>
+            <div className="header-buttons">
+              {user.isAdmin ? (
+              <NewDish to="/new">Novo prato</NewDish>
+            ) : (
+              <Favorites type="button" onClick={functionButton}>
+                Meus favoritos
+              </Favorites>
+            )}
 
-          <Search>
-            {<FiSearch size={20} />}
-            <input
-              type="text"
-              placeholder="Busque pelas opções de pratos"
-              onChange={(e) => {
-                search(e.target.value);
-              }}
-            />
-          </Search>
+            {user.isAdmin ? (
+              <Button type="button" onClick={handleGoToOrders}>
+                <img src={receipt} alt="receipt" />
+                Pedidos<span>({orders.length})</span>
+              </Button>
+            ) : (
+              <Button
+                type="button"
+                onClick={handleGoToCart}
+                disabled={isCartIsEmpty}
+              >
+                <img src={receipt} alt="receipt" />
+                Pedido <span>({cart.length})</span>
+              </Button>
+            )}
 
-          {user.isAdmin ? (
-            <Button type="button" onClick={handleGoToOrders}>
-              <img src={receipt} alt="receipt" />
-              pedidos<span>({orders.length})</span>
-            </Button>
-          ) : (
-            <Button
-              type="button"
-              onClick={handleGoToCart}
-              disabled={isCartIsEmpty}
-            >
-              <img src={receipt} alt="receipt" />
-              Meu pedido <span>({cart.length})</span>
-            </Button>
-          )}
-
-          <Logout to="/" onClick={signOut}>
-            <FiLogOut />
-          </Logout>
+            <Logout to="/" onClick={signOut}>
+              <FiLogOut />
+              <span>Sair</span>
+            </Logout>
+            </div>
         </Nav>
 
         <button type="button" onClick={() => setMenuIsVisible(!menuIsVisible)}>
@@ -92,3 +97,4 @@ export function Header({ search, functionButton }) {
     </Container>
   );
 }
+

@@ -47,11 +47,11 @@ export function Home() {
             <p>Sinta o cuidado do preparo com ingredientes selecionados</p>
           </div>
         </Slogan>
-        {dishes.filter((dish) => dish.category == "pratos principais").length >
+        {dishes.filter((dish) => dish.category == "refeições").length >
           0 && (
-          <Section title="Pratos principais">
+          <Section title="Refeições">
             {dishes
-              .filter((dish) => dish.category == "pratos principais")
+              .filter((dish) => dish.category == "refeições")
               .map((dish) => (
                 <Card key={String(dish.id)} data={dish} />
               ))}

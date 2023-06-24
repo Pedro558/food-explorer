@@ -46,6 +46,22 @@ export function Edit() {
     );
   }
 
+  async function handleRemoveDish() {
+    const userInput = window.prompt("Digite 'remover' para confirmar a exclusão do prato:");
+
+    if(userInput === 'remover'){
+      await api.delete(`/dishes/${params.id}`);
+      alert('Prato apagado com sucesso !')
+      navigate('/')
+    } else {
+      alert('Você digitou a palavra errada')
+    }
+    // const confirm = window.confirm("Deseja realmente remover esse prato?");
+
+    // if (confirm) {
+    // }
+  }
+
   async function handleUpdateDish() {
     if (!imageFile) {
       return alert("Adicione uma imagem para o prato");
@@ -115,47 +131,47 @@ export function Edit() {
       {user.isAdmin && (
         <Content>
           <ButtonBack>
-            <Link to="/">
+            <Link to='/'>
               {" "}
               <FiChevronLeft size={30} />
               Voltar
             </Link>
           </ButtonBack>
 
-          <Form>
+          <Form >
             <header>
               <legend>Editar prato</legend>
             </header>
 
             <InputWrapper>
-              <div className="smallBox">
-                <label id="file" htmlFor="image">
+              <div className='smallBox'>
+                <label id='file' htmlFor='image'>
                   Imagem do prato
                   <div>
                     <FiUpload size={24} />
                     <span>Selecione a imagem</span>
                     <input
-                      id="image"
-                      type="file"
+                      id='image'
+                      type='file'
                       onChange={(e) => setImageFile(e.target.files[0])}
                     />
                   </div>
                 </label>
               </div>
               <Input
-                label="name"
-                title="Nome do prato"
-                type="text"
-                placeholder="Ex.: Salada Ceasar"
+                label='name'
+                title='Nome do prato'
+                type='text'
+                placeholder='Ex.: Salada Ceasar'
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
               />
 
               <Input
-                label="category"
-                title="Categoria"
-                type="text"
-                placeholder="pratos principais"
+                label='category'
+                title='Categoria'
+                type='text'
+                placeholder='pratos principais'
                 value={category}
                 onChange={(e) => setCategory(e.target.value)}
               />
@@ -175,31 +191,33 @@ export function Edit() {
                   <IngredientItem
                     isNew
                     value={newIngredient}
-                    placeholder="Adicionar"
+                    placeholder='Adicionar'
                     onChange={(e) => setNewIngredient(e.target.value)}
                     onClick={handleAddIngredient}
                   />
                 </div>
               </SectionIngredients>
-              <div className="smallBox">
+              <div className='smallBox'>
                 <Input
-                  label="price"
-                  title="Preço"
-                  type="text"
+                  label='price'
+                  title='Preço'
+                  type='text'
                   value={price}
-                  placeholder="R$ 00,00"
+                  placeholder='R$ 00,00'
                   onChange={(e) => setPrice(e.target.value)}
                 />
               </div>
             </InputWrapper>
             <Textarea
-              label="Description"
-              title="Descrição"
+              label='Description'
+              title='Descrição'
               defaultValue={description}
-              placeholder="Fale brevemente sobre o prato, seus ingredientes e composição"
+              placeholder='Fale brevemente sobre o prato, seus ingredientes e composição'
               onChange={(e) => setDescription(e.target.value)}
             />
-            <button type="button" onClick={handleUpdateDish} disabled={loading}>
+            <button type='button' onClick={handleRemoveDish}>Remover</button>
+
+            <button type='button' onClick={handleUpdateDish} disabled={loading}>
               {loading ? "Atualizando pedido" : "Atualizar pedido"}
             </button>
           </Form>

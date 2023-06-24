@@ -137,7 +137,7 @@ export function New() {
                 label="category"
                 title="Categoria"
                 type="text"
-                placeholder="pratos principais"
+                placeholder="refeições"
                 onChange={(e) => setCategory(e.target.value)}
               />
             </InputWrapper>
@@ -179,7 +179,7 @@ export function New() {
               onChange={(e) => setDescription(e.target.value)}
             />
             <button type="button" onClick={handleNewDish} disabled={loading}>
-              {loading ? "Adicionando pedido" : "Adicionar pedido"}
+              {loading ? "Adicionando prato" : "Adicionar prato"}
             </button>
           </Form>
         </Content>

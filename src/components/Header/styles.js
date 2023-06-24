@@ -68,6 +68,13 @@ export const Nav = styled.div`
 
   transition: all 0.4s;
 
+  .header-buttons {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+  }
+
   @media (min-width: 768px) {
     position: relative;
     top: 0;
@@ -86,15 +93,49 @@ export const Nav = styled.div`
     transform: translateY(0);
     transition: all 0s;
   }
+
+  @media (max-width: 768px) {
+   > .header-buttons {
+    flex-direction: column;
+    > a {
+      display: block;
+      text-align: start;
+      padding-left: 0px;
+    }
+    > button {
+      display: flex;
+      justify-content: start;
+    }
+   }
+  }
 `
 
 export const Logo = styled(Link)`
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 1.1rem;
 
   font-size: 2.4rem;
   color: ${({ theme }) => theme.COLORS.WHITE};
+
+  position: relative;
+
+  > .text-logo span {
+    display: block; 
+    font-size: 1.2rem;
+    text-align: end;
+    color: #82F3FF;
+
+    position: absolute;
+    right: 0;
+
+    @media (max-width: 768px) {
+      display: inline-block;
+      right: -45px;
+      top: 30%;
+    }
+  }
 `
 
 export const Favorites = styled.button`
@@ -108,11 +149,17 @@ export const NewDish = styled(Link)`
   color: ${({ theme }) => theme.COLORS.GRAY_100};
   padding-inline: 1.2rem;
   border-radius: 0.5rem;
-  height: 3rem;
-
+  height: 4.8rem;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
+
+  @media (max-width: 768px) {
+    background-color: transparent;
+    border-radius: 0;
+    border-bottom: 2px solid ${({ theme }) => theme.COLORS.BACKGROUND_400};
+  }
 `
 
 export const Search = styled.div`
@@ -145,15 +192,11 @@ export const Search = styled.div`
       color: ${({ theme }) => theme.COLORS.GRAY_500};
     }
   }
-
-  @media (min-width: 768px) {
-    flex: 1;
-  }
 `
 
 export const Button = styled.button`
   width: 100%;
-  height: 5.6rem;
+  height: 4.6rem;
   border: none;
   border-radius: 0.5rem;
 
@@ -170,14 +213,39 @@ export const Button = styled.button`
     opacity: 0.5;
   }
 
-  @media (min-width: 768px) {
-    width: 21.6rem;
+  @media (max-width: 768px) {
+    background-color: transparent;
+    border-radius: 0;
+    border-bottom: 2px solid ${({ theme }) => theme.COLORS.BACKGROUND_400};
+
+    img {
+      display: none;
+    }
   }
 `
 
 export const Logout = styled(Link)`
+  span {
+    display: none;
+  }
   > svg {
     font-size: 2.2rem;
     color: ${({ theme }) => theme.COLORS.WHITE};
   } 
+
+  @media (max-width: 768px) {
+    width: 100%;
+    text-align: center;
+    padding-bottom: 1rem;
+    svg {
+      display: none;
+    }
+    span {
+      text-decoration: none;
+      color: ${({ theme }) => theme.COLORS.WHITE};
+      display: block;
+    }
+    
+    border-bottom: 2px solid ${({ theme }) => theme.COLORS.BACKGROUND_400};
+  }
 `

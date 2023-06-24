@@ -7,6 +7,7 @@ export default {
     BACKGROUND_400: "#0D1D25", 
 
     WHITE: "#FFF",
+    BLACK: "#000",
 
     GRAY_500: "#7C7C8A", 
     GRAY_200: "#C4C4CC", 

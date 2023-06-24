@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import { FiMinus, FiPlus, FiChevronLeft } from "react-icons/fi";
 
 import { Footer } from "../../components/Footer";
@@ -10,6 +10,7 @@ import { api } from "../../services/api";
 import { useCart } from "../../hooks/cart";
 
 import receipt from "../../assets/receipt.svg";
+import { useAuth } from "../../hooks/auth";
 
 import {
   Container,
@@ -28,6 +29,8 @@ export function Details() {
   console.log(data);
 
   const imageURL = data && `${api.defaults.baseURL}/files/${data.image}`;
+  const { user } = useAuth()
+  const navigate = useNavigate()
 
   function handleAddQuantity() {
     const isGreater10 = quantity >= 9;
@@ -44,6 +47,10 @@ export function Details() {
       return;
     }
     setQuantity(quantity - 1);
+  }
+
+  function handleEditPage(){
+    navigate(`/edit/${params.id}`)
   }
 
   useEffect(() => {
@@ -83,6 +90,9 @@ export function Details() {
                   />
                 ))}
               </Ingredients>
+              {user.isAdmin ? (
+                <Button title='Editar' onClick={handleEditPage}/>
+              ) : (
               <Info>
                 <strong>R$ {data.price}</strong>
                 <button onClick={handleRemoveQuantity} className="btn">
@@ -104,6 +114,8 @@ export function Details() {
                   />
                 </div>
               </Info>
+
+              )}
             </div>
           </Main>
         )}

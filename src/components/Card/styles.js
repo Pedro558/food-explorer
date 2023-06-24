@@ -24,7 +24,7 @@ export const Container = styled.div`
     border: none;
 
     svg {
-      fill: ${({ theme, isFavorite }) => isFavorite ? theme.COLORS.RED : theme.COLORS.WHITE};
+      fill: ${({ theme, isFavorite }) => isFavorite ? theme.COLORS.RED : theme.COLORS.BLACK};
     }
   }
 
