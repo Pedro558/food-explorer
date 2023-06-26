@@ -235,12 +235,14 @@ export const Button = styled.button`
     background-color: transparent;
     border-radius: 0;
     border-bottom: 2px solid ${({ theme }) => theme.COLORS.BACKGROUND_400};
-
-  }
-
-  img{
+    
+    img{
     display: none;
   }
+
+  }
+
+  
 `
 
 export const Logout = styled(Link)`
