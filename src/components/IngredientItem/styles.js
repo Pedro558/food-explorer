@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Container = styled.div`
   display: flex;
   align-items: center;
-  background-color: ${({ isNew }) => isNew ? 'transparent' : '#1A2327'};
+  background-color: ${({ theme, isNew }) => isNew ? 'transparent' : theme.COLORS.BACKGROUND_500};
   color: ${({ theme, isNew }) => isNew ? theme.COLORS.GRAY_500 : '#FFFFFF'};
   border: ${({ theme, isNew}) => isNew ? `1px dashed ${theme.COLORS.GRAY_500}` : 'none'};
   padding-right: 1.2rem;
