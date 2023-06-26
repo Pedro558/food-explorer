@@ -55,7 +55,7 @@ export const Form = styled.form`
  } 
 
  .smallBox {
-   max-width: 23rem;
+   width: 23rem;
 
    #file {
      color: ${({ theme }) => theme.COLORS.GRAY_200};
@@ -69,12 +69,17 @@ export const Form = styled.form`
        justify-content: center;
        gap: 1rem;
 
-       border: 1px solid ${({ theme }) => theme.COLORS.WHITE};
+       border: none;
+       background-color: ${({theme}) => theme.COLORS.BACKGROUND_400};
        border-radius: 0.5rem;
        height: 4.8rem;
        width: 22.9rem;
 
        color: ${({ theme }) => theme.COLORS.WHITE};
+
+       @media(max-width: 768px){
+        width: 100%;
+       }
      }
    }
 
@@ -83,27 +88,50 @@ export const Form = styled.form`
    }
  }
 
- > button {
-   margin-top: 2.4rem;
-   height: 4.8rem;
-   width: 100%;
-   background: #1A2327;
-   border: 1px solid ${({ theme }) => theme.COLORS.WHITE};
-   border-radius: 0.5rem;
-   color: ${({ theme }) => theme.COLORS.WHITE};
+ > .btn-group{
+    display: flex;
+    gap: 3.2rem;
+    justify-content: flex-end;
+   > button {
+     margin-top: 2.4rem;
+     height: 4.8rem;
+     width: 100%;
 
-   align-self: flex-end;
-   
-   &:disabled {
-     opacity: 0.5;
-     cursor: not-allowed;
+     border: none;
+     border-radius: 0.5rem;
+     color: ${({ theme }) => theme.COLORS.WHITE};
+  
+     align-self: flex-end;
+     
+     &:disabled {
+       opacity: 0.5;
+       cursor: not-allowed;
+     }
+  
+     @media (min-width: 768px) {
+       width: 17.2rem;
+     }
    }
 
-   @media (min-width: 768px) {
-     width: 35.7rem;
-   }
+   .btn-update{
+    background-color: #AB4D55;
 
+    &:hover{
+      background: ${({theme}) => theme.COLORS.RED};
+    }
+    }
+
+    .btn-remove{
+      background-color: ${({ theme }) => theme.COLORS.BACKGROUND_400};
+    }
  }
+
+ @media (max-width: 768px) {
+  .smallBox {
+    width: 100%;
+  }
+}
+
 
 `
 
@@ -113,7 +141,7 @@ export const InputWrapper = styled.div`
  
  margin-bottom: 4rem;
 
- gap: 4rem;
+ gap: 2.4rem;
 
  @media (min-width: 768px) {
    flex-wrap: nowrap;
@@ -129,7 +157,7 @@ export const SectionIngredients = styled.div`
  gap: 0.8rem;
  color: ${({ theme }) => theme.COLORS.GRAY_200};
 
- margin-bottom: 8rem;
+ margin-bottom: 4rem;
 
  > div {
    display: flex;
@@ -138,7 +166,7 @@ export const SectionIngredients = styled.div`
    max-height: max-content;
    padding: 0.8rem;
 
-   border: 1px solid ${({ theme }) => theme.COLORS.WHITE};
+   background-color: ${({theme}) => theme.COLORS.BACKGROUND_400};
    border-radius: 0.5rem;
  }
 
