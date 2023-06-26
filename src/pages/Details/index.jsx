@@ -91,10 +91,10 @@ export function Details() {
                 ))}
               </Ingredients>
               {user.isAdmin ? (
-                <Button title='Editar' onClick={handleEditPage}/>
+                <Button title='Editar prato' onClick={handleEditPage}/>
               ) : (
               <Info>
-                <strong>R$ {data.price}</strong>
+                
                 <button onClick={handleRemoveQuantity} className="btn">
                   <FiMinus size={25} />
                 </button>
@@ -106,7 +106,7 @@ export function Details() {
                 </button>
                 <div>
                   <Button
-                    title="incluir"
+                    title={`incluir - R$ ${data.price},00`}
                     image={receipt}
                     onClick={() =>
                       handleAddDishToCart(data, quantity, imageURL)
