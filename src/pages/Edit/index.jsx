@@ -7,6 +7,7 @@ import { Header } from "../../components/Header";
 import { Input } from "../../components/Input";
 import { Textarea } from "../../components/Textarea";
 import { IngredientItem } from "../../components/IngredientItem";
+import { Select } from '../../components/Select'
 import { api } from "../../services/api";
 import { useAuth } from "../../hooks/auth";
 
@@ -56,10 +57,6 @@ export function Edit() {
     } else {
       alert('Você digitou a palavra errada')
     }
-    // const confirm = window.confirm("Deseja realmente remover esse prato?");
-
-    // if (confirm) {
-    // }
   }
 
   async function handleUpdateDish() {
@@ -160,21 +157,23 @@ export function Edit() {
               </div>
               <Input
                 label='name'
-                title='Nome do prato'
+                title='Nome'
                 type='text'
                 placeholder='Ex.: Salada Ceasar'
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
               />
 
-              <Input
+            <Select
                 label='category'
                 title='Categoria'
-                type='text'
-                placeholder='pratos principais'
                 value={category}
                 onChange={(e) => setCategory(e.target.value)}
-              />
+              >
+                <option value="refeições">Refeições</option>
+                <option value="bebidas">Bebidas</option>
+                <option value="sobremesas">Sobremesas</option>
+              </Select>
             </InputWrapper>
 
             <InputWrapper>
@@ -215,11 +214,13 @@ export function Edit() {
               placeholder='Fale brevemente sobre o prato, seus ingredientes e composição'
               onChange={(e) => setDescription(e.target.value)}
             />
-            <button type='button' onClick={handleRemoveDish}>Remover</button>
+            <div className="btn-group">
+              <button type='button' onClick={handleRemoveDish} className='btn-remove'>Excluir prato</button>
 
-            <button type='button' onClick={handleUpdateDish} disabled={loading}>
-              {loading ? "Atualizando pedido" : "Atualizar pedido"}
-            </button>
+              <button type='button' onClick={handleUpdateDish} disabled={loading} className='btn-update'>
+                {loading ? "Salvando alterações" : "Salvar alterações"}
+              </button>
+            </div>
           </Form>
         </Content>
       )}
