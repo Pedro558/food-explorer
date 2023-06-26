@@ -15,11 +15,11 @@ export const TextareaInput= styled.textarea`
   font-family: 'Roboto', sans-serif;
   font-weight: 400;
   font-size: 1.6rem;
-  color: ${({ theme }) => theme.COLORS.WHITE};
+  color: ${({ theme }) => theme.COLORS.GRAY_200};
   padding: 1.4rem;
-  border: 1px solid ${({ theme }) => theme.COLORS.WHITE};
+  border: none;
   border-radius: 0.5rem;
-  background: transparent;
+  background-color: ${({ theme }) => theme.COLORS.BACKGROUND_400};
   &::placeholder {
     color: ${({ theme }) => theme.COLORS.GRAY_500};
     font-size: 1.6rem;
