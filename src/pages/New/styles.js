@@ -55,7 +55,7 @@ export const Form = styled.form`
  } 
 
  .smallBox {
-   max-width: 23rem;
+   width: 23rem;
 
    #file {
      color: ${({ theme }) => theme.COLORS.GRAY_200};
@@ -68,13 +68,17 @@ export const Form = styled.form`
        align-items: center;
        justify-content: center;
        gap: 1rem;
-
-       border: 1px solid ${({ theme }) => theme.COLORS.WHITE};
+       background-color: ${({ theme }) => theme.COLORS.BACKGROUND_400};
+       
        border-radius: 0.5rem;
        height: 4.8rem;
        width: 22.9rem;
 
        color: ${({ theme }) => theme.COLORS.WHITE};
+       
+       @media(max-width: 768px){
+        width: 100%;
+       }
      }
    }
 
@@ -83,12 +87,19 @@ export const Form = styled.form`
    }
  }
 
+ @media (max-width: 768px) {
+  .smallBox {
+    width: 100%;
+  }
+}
+
  > button {
    margin-top: 2.4rem;
    height: 4.8rem;
    width: 100%;
-   background: #1A2327;
-   border: 1px solid ${({ theme }) => theme.COLORS.WHITE};
+   background-color: #AB4D55;
+   
+   border: none;
    border-radius: 0.5rem;
    color: ${({ theme }) => theme.COLORS.WHITE};
 
@@ -99,9 +110,14 @@ export const Form = styled.form`
      cursor: not-allowed;
    }
 
-   @media (min-width: 768px) {
-     width: 35.7rem;
+   &:hover{
+      background: ${({theme}) => theme.COLORS.RED};
    }
+
+   @media (min-width: 768px) {
+     width: 17.2rem;
+   }
+
 
  }
 
@@ -113,7 +129,7 @@ export const InputWrapper = styled.div`
  
  margin-bottom: 4rem;
 
- gap: 4rem;
+ gap: 2.4rem;
 
  @media (min-width: 768px) {
    flex-wrap: nowrap;
@@ -137,8 +153,8 @@ export const SectionIngredients = styled.div`
    gap: 2rem;
    max-height: max-content;
    padding: 0.8rem;
-
-   border: 1px solid ${({ theme }) => theme.COLORS.WHITE};
+   background-color: ${({ theme }) => theme.COLORS.BACKGROUND_400};
+   
    border-radius: 0.5rem;
  }
 
