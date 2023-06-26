@@ -6,6 +6,7 @@ import { Footer } from "../../components/Footer";
 import { Header } from "../../components/Header";
 import { Input } from "../../components/Input";
 import { Textarea } from "../../components/Textarea";
+import { Select } from "../../components/Select";
 import { IngredientItem } from "../../components/IngredientItem";
 import { useAuth } from "../../hooks/auth";
 import { api } from "../../services/api";
@@ -16,14 +17,14 @@ import {
   ButtonBack,
   Form,
   SectionIngredients,
-  InputWrapper,
+  InputWrapper
 } from "./styles";
 
 export function New() {
   const [imageFile, setImageFile] = useState(null);
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
-  const [category, setCategory] = useState("");
+  const [category, setCategory] = useState("refeições");
   const [price, setPrice] = useState("");
 
   const [ingredients, setIngredients] = useState([]);
@@ -54,13 +55,14 @@ export function New() {
       return alert("Adicione um titulo para o prato");
     }
 
+    if (!category) {
+      return alert("Adicione um categoria para o prato");
+    }
+
     if (!description) {
       return alert("Adicione uma descrição para o prato");
     }
 
-    if (!category) {
-      return alert("Adicione um categoria para o prato");
-    }
 
     if (!price) {
       return alert("Adicione um preço para o prato");
@@ -108,7 +110,7 @@ export function New() {
 
           <Form>
             <header>
-              <legend>Criar prato</legend>
+              <legend>Adicionar prato</legend>
             </header>
 
             <InputWrapper>
@@ -128,18 +130,23 @@ export function New() {
               </div>
               <Input
                 label="name"
-                title="Nome do prato"
+                title="Nome"
                 type="text"
                 placeholder="Ex.: Salada Ceasar"
                 onChange={(e) => setTitle(e.target.value)}
               />
-              <Input
-                label="category"
-                title="Categoria"
-                type="text"
-                placeholder="refeições"
+
+              <Select
+                label='category'
+                title='Categoria'
+                value={category}
                 onChange={(e) => setCategory(e.target.value)}
-              />
+              >
+                <option value="refeições">Refeições</option>
+                <option value="bebidas">Bebidas</option>
+                <option value="sobremesas">Sobremesas</option>
+              </Select>
+
             </InputWrapper>
 
             <InputWrapper>
@@ -179,7 +186,7 @@ export function New() {
               onChange={(e) => setDescription(e.target.value)}
             />
             <button type="button" onClick={handleNewDish} disabled={loading}>
-              {loading ? "Adicionando prato" : "Adicionar prato"}
+              {loading ? "Salvando alterações" : "Salvar alterações"}
             </button>
           </Form>
         </Content>
