@@ -39,7 +39,7 @@ export function Header({ search, functionButton }) {
   return (
     <Container>
       <Content>
-        <Logo to="/">
+        <Logo to="/" >
           <img src={logo} alt="polígono azul" />
           <p className="text-logo">
             <strong>food explorer</strong>
@@ -78,8 +78,8 @@ export function Header({ search, functionButton }) {
                 onClick={handleGoToCart}
                 disabled={isCartIsEmpty}
               >
-                <img src={receipt} alt="receipt" />
-                Pedido <span>({cart.length})</span>
+                <img src={receipt} alt="receipt"/>
+                Pedidos <span>({cart.length})</span>
               </Button>
             )}
 
