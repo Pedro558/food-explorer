@@ -14,11 +14,11 @@ export const Container = styled.div`
     height: 4.8rem;
     padding: 1.4rem;
 
-    border: 1px solid ${({ theme }) => theme.COLORS.WHITE};
+    border: none;
     border-radius: 0.5rem;
 
-    color: ${({ theme }) => theme.COLORS.WHITE};
-    background: transparent;
+    color: ${({ theme }) => theme.COLORS.GRAY_200};
+    background-color: ${({ theme}) => theme.COLORS.BACKGROUND_400};
 
     &::placeholder {
       color: ${({ theme }) => theme.COLORS.GRAY_500};
