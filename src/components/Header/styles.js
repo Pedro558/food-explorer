@@ -34,7 +34,7 @@ export const Content = styled.div`
     }
   }
 
-  @media (min-width: 768px) {
+  @media (min-width: 1024px) {
     padding-inline: 12.3rem;
 
     > button {
@@ -75,7 +75,7 @@ export const Nav = styled.div`
     width: 100%;
   }
 
-  @media (min-width: 768px) {
+  @media (min-width: 1024px) {
     position: relative;
     top: 0;
     padding: 0;
@@ -94,11 +94,12 @@ export const Nav = styled.div`
     transition: all 0s;
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 1024px) {
    > .header-buttons {
     flex-direction: column;
     > a {
-      display: block;
+      display: flex;
+      justify-content: flex-start;
       text-align: start;
       padding-left: 0px;
     }
@@ -130,7 +131,7 @@ export const Logo = styled(Link)`
     position: absolute;
     right: 0;
 
-    @media (max-width: 768px) {
+    @media (max-width: 1024px) {
       display: inline-block;
       right: -45px;
       top: 30%;
@@ -139,23 +140,43 @@ export const Logo = styled(Link)`
 `
 
 export const Favorites = styled.button`
-  color: ${({ theme }) => theme.COLORS.GRAY_100};
-  background: none;
+  width: 100%;
+  height: 4.6rem;
   border: none;
-  font-size: 1.6rem;
+  border-radius: 0.5rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.1rem;
+
+  background-color: ${({ theme }) => theme.COLORS.RED};
+  color: ${({ theme }) => theme.COLORS.WHITE};
+  font-size: 1.4rem;
+
+  &:disabled {
+    opacity: 0.5;
+  }
+
+  @media (max-width: 1024px) {
+    background-color: transparent;
+    border-radius: 0;
+    border-bottom: 2px solid ${({ theme }) => theme.COLORS.BACKGROUND_400};
+  }
 `
 export const NewDish = styled(Link)`
   background-color: ${({ theme }) => theme.COLORS.RED};
   color: ${({ theme }) => theme.COLORS.GRAY_100};
   padding-inline: 1.2rem;
   border-radius: 0.5rem;
-  height: 4.8rem;
+  height: 4.6rem;
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
+  font-size: 1.4rem;
 
-  @media (max-width: 768px) {
+  @media (max-width: 1024px) {
     background-color: transparent;
     border-radius: 0;
     border-bottom: 2px solid ${({ theme }) => theme.COLORS.BACKGROUND_400};
@@ -209,18 +230,16 @@ export const Button = styled.button`
   color: ${({ theme }) => theme.COLORS.WHITE};
   font-size: 1.4rem;
 
-  &:disabled {
-    opacity: 0.5;
-  }
 
-  @media (max-width: 768px) {
+  @media (max-width: 1024px) {
     background-color: transparent;
     border-radius: 0;
     border-bottom: 2px solid ${({ theme }) => theme.COLORS.BACKGROUND_400};
 
-    img {
-      display: none;
-    }
+  }
+
+  img{
+    display: none;
   }
 `
 
@@ -233,7 +252,7 @@ export const Logout = styled(Link)`
     color: ${({ theme }) => theme.COLORS.WHITE};
   } 
 
-  @media (max-width: 768px) {
+  @media (max-width: 1024px) {
     width: 100%;
     text-align: center;
     padding-bottom: 1rem;
@@ -244,6 +263,7 @@ export const Logout = styled(Link)`
       text-decoration: none;
       color: ${({ theme }) => theme.COLORS.WHITE};
       display: block;
+      font-size: 1.4rem;
     }
     
     border-bottom: 2px solid ${({ theme }) => theme.COLORS.BACKGROUND_400};
