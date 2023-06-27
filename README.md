@@ -14,7 +14,7 @@
 </p>
 
 <h1 align="center">
-    <img alt="Food Explorer" title="Food Explorer" src="./.github/capa.png" />
+    <img alt="Food Explorer" title="Food Explorer" src="https://i.imgur.com/2NQ9gg8.jpg" />
 </h1>
 
 ## 📖 About
@@ -50,19 +50,15 @@ Application developed using the following tools:
 ## 🎬 How it works
 ### 🖥️ Web version user / admin
 <div style="display:flex; flex-direction: row">
-  <img alt="Food Explorer" title="Food Explorer" src="./.github/food-explorer-client.gif" width=49% height=50%/>
-  <img alt="Food Explorer" title="Food Explorer" src="./.github/food-explorer-admin.gif" width=49% height=50%/>
+  <img alt="Food Explorer" title="Food Explorer" src="./.github/user.gif" width=49% height=50%/>
+  <img alt="Food Explorer" title="Food Explorer" src="./.github/user-admin.gif" width=49% height=50%/>
 </div>
 
 
 ### 📲 Mobile Food Explorer 
-<div style="display:grid; grid-template-columns: 1fr 1fr; margin: 0 auto">
-  <img alt="Food Explorer mobile" title="Food Explorer" src="./.github/1.png" />
-  <img alt="Food Explorer mobile" title="Food Explorer" src="./.github/2.png" />
-  <img alt="Food Explorer mobile" title="Food Explorer" src="./.github/3.png" />
-  <img alt="Food Explorer mobile" title="Food Explorer" src="./.github/4.png" />
-  <img alt="Food Explorer mobile" title="Food Explorer" src="./.github/5.png" />
-  <img alt="Food Explorer mobile" title="Food Explorer" src="./.github/6.png" width=380px height=790px/>
+<div style="display:flex; flex-direction: row">
+  <img alt="Food Explorer" title="Food Explorer" src="./.github/user-mobile.gif" width=49% height=50%/>
+  <img alt="Food Explorer" title="Food Explorer" src="./.github/user-admin-mobile.gif" width=49% height=50%/>
 </div>
 
 ## 🚀 Getting started
@@ -131,7 +127,7 @@ $ npm install
 # Run the application in development mode
 $ npm run dev
 
-# The application will open on the port: 3000 - go to http://localhost:5173/ or http://127.0.0.1:5173/ 
+# The application will open on the port: 3333 - go to http://localhost:5173/ or http://127.0.0.1:5173/ 
 ```
 
 <br />
