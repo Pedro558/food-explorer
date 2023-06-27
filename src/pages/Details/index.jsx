@@ -106,7 +106,7 @@ export function Details() {
                 </button>
                 <div>
                   <Button
-                    title={`incluir - R$ ${data.price},00`}
+                    title={`incluir - R$ ${data.price}`}
                     image={receipt}
                     onClick={() =>
                       handleAddDishToCart(data, quantity, imageURL)

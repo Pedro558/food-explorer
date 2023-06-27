@@ -60,9 +60,9 @@ export function Edit() {
   }
 
   async function handleUpdateDish() {
-    if (!imageFile) {
-      return alert("Adicione uma imagem para o prato");
-    }
+    // if (!imageFile) {
+    //   return alert("Adicione uma imagem para o prato");
+    // }
 
     if (!title) {
       return alert("Adicione um titulo para o prato");
