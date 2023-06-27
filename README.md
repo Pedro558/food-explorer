@@ -77,8 +77,8 @@ installed and Visual Studio Code.
 - [Git](https://git-scm.com/)
 
 This project is divided into two parts:
-1. Backend (api-food-explorer) 
-2. Frontend (food-explorer folder)
+1. [Backend - api-food-explorer](https://github.com/Pedro558/api-food-explorer) 
+2. Frontend (this repository)
 
 💡 The Frontend needs the Backend to be running to work.
 
@@ -104,11 +104,11 @@ $ npm seed
 $ npm run dev
 
 # Admin login
-$ email: admin@email.com
-$ password: 0908
+$ email: pedro@gmail.com
+$ password: 123456
 
 # Client login
-$ email: cliente@email.com
+$ email: user@gmail.com
 $ password: 123456
 
 # The Server will start at port: 3333 - go to http://localhost:3333
